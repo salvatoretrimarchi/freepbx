@@ -36,7 +36,7 @@ function cron_scheduler_send_message($to,$from,$subject,$message){
 	$em->message($message);
 	return $em->send();
 }
-$brand = $amp_conf['DASHBOARD_FREEPBX_BRAND']?$amp_conf['DASHBOARD_FREEPBX_BRAND']:'FreePBX';
+$brand = $amp_conf['DASHBOARD_FREEPBX_BRAND']?$amp_conf['DASHBOARD_FREEPBX_BRAND']:'Asterman';
 $email = $cm->get_email();
 if ($email) {
 	$text = "";

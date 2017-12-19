@@ -1768,10 +1768,10 @@ class Installer {
 	);
 
 	$settings[$category]['DASHBOARD_FREEPBX_BRAND'] = array(
-	'value' => 'FreePBX',
+	'value' => 'Asterman',
 	'options' => '',
-	'name' => 'FreePBX Brand',
-	'description' => 'The FreePBX Brand Name',
+	'name' => 'Asterman Brand',
+	'description' => 'The Asterman Brand Name',
 	'readonly' => 1,
 	'emptyok' => 1,
 	'hidden' => 1,

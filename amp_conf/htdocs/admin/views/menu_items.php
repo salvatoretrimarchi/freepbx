@@ -60,20 +60,20 @@ if (isset($fpbx_menu) && is_array($fpbx_menu)) {	// && freepbx_menu.conf not def
 		}
 	}
 
-	$count = 0;
-	$menu = is_array($menu) ? $menu : array();
-	$mods = array();
-	foreach($menu as $t => $cat) { //categories
-		if (count($cat) == 1) {
-			if (isset($cat[0]['hidden']) && $cat[0]['hidden'] == 'true') {
-				continue;
-			}
-			$href = isset($cat[0]['href']) ? $cat[0]['href'] : 'config.php?display=' . $cat[0]['display'];
-			$target = isset($cat[0]['target']) ? ' target="' . $cat[0]['target'] . '"'  : '';
-			$class = $cat[0]['display'] == $display ? 'class="ui-state-highlight"' : '';
-			$mods[$t] = '<li><a href="' . $href . '" ' . $target . $class . '>' . modgettext::_(ucwords($cat[0]['name']),$cat[0]['module']['rawname']) . '</a></li>';
-			continue;
-		}
+	//$count = 0;
+	//$menu = is_array($menu) ? $menu : array();
+	//$mods = array();
+	//foreach($menu as $t => $cat) { //categories
+	//	if (count($cat) == 1) {
+	//		if (isset($cat[0]['hidden']) && $cat[0]['hidden'] == 'true') {
+	//			continue;
+	//		}
+	//		$href = isset($cat[0]['href']) ? $cat[0]['href'] : 'config.php?display=' . $cat[0]['display'];
+	//		$target = isset($cat[0]['target']) ? ' target="' . $cat[0]['target'] . '"'  : '';
+	//		$class = $cat[0]['display'] == $display ? 'class="ui-state-highlight"' : '';
+	//		$mods[$t] = '<li><a href="' . $href . '" ' . $target . $class . '>' . modgettext::_(ucwords($cat[0]['name']),$cat[0]['module']['rawname']) . '</a></li>';
+	//		continue;
+	//	}
 
 		//Reverse lookup here, first look in amp, then the module, then amp again.
 		//This allows us to check special modules that are not defined in Framework

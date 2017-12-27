@@ -27,8 +27,7 @@ $html .= '<div class="col-md-4">
 $html .= '<div class="col-md-4" id="footer_text">';
 $html .= sprintf(_('%s is a registered trademark of'),'<a href="http://www.manconsulting.co.uk" target="_blank">MAN Consulting S.A. (Honduras)</a>') . br() . '<a href="http://www.manconsulting.co.uk/es_ES/page/servicios-administrados" target="_blank"> Centro Morazán, Torre 1, Piso 8, Oficina 10813</a>' . br();
 $html .= sprintf(_('%s is a registered trademark of'),'<a href="http://www.manconsulting.co.uk" target="_blank">frente Mall Dorado, Blvd. Morazán</a>') . br() . '<a href="http://www.manconsulting.co.uk/es_ES/page/servicios-administrados" target="_blank"> Tegucigalpa 08 11101 Honduras</a>' . br();
-$html .= sprintf(_('%s is a registered trademark of'),'<a href="http://www.manconsulting.co.uk" target="_blank"> +504 2262 6363</a>') . br();
-$html .= sprintf(_('%s %s is licensed under the %s'),'AsterMan 3.0''<a href="" target="_blank"> GPL</a>') . br();
+$html .= sprintf(_('%s is a registered trademark of'),'<a href="http://www.manconsulting.co.uk" target="_blank">+504 2262 6363</a>') . br() . '<a href="http://www.manconsulting.co.uk/es_ES/page/servicios-administrados" target="_blank"> AsterMan 3.0</a>' . br();
 $html .= '<a href="" target="_blank">Copyright&copy; 2017-'.date('Y',time()).'</a>';
 
 //module license

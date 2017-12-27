@@ -44,7 +44,7 @@ class Installer {
 		if(!class_exists('FreePBX\LoadConfig')) {
 			include dirname(__DIR__)."/amp_conf/htdocs/admin/libraries/BMO/LoadConfig.class.php";
 		}
-		$conf = new \FreePBX\LoadConfig("Fake FreePBX Object",basename($filename),dirname($filename));
+		$conf = new \FreePBX\LoadConfig("Fake AsterMan Object",basename($filename),dirname($filename));
 
 		return $conf->ProcessedConfig;
 	}
@@ -250,8 +250,8 @@ class Installer {
 	$settings[$category]['AMPSYSLOGLEVEL'] = array(
 	'value' => 'FILE',
 	'options' => 'FILE, LOG_EMERG, LOG_ALERT, LOG_CRIT, LOG_ERR, LOG_WARNING, LOG_NOTICE, LOG_INFO, LOG_DEBUG' . ((isset($amp_conf['AMPSYSLOGLEVEL']) && (strtoupper($amp_conf['AMPSYSLOGLEVEL']) == 'SQL' || strtoupper($amp_conf['AMPSYSLOGLEVEL']) == 'LOG_SQL')) ? ', LOG_SQL, SQL' : ''),
-	'name' => 'FreePBX Log Routing',
-	'description' => "Determine where to send log information if the log is enabled ('Disable FreePBX Log' (AMPDISABLELOG) false. There are two places to route the log messages. 'FILE' will send all log messages to the defined 'FreePBX Log File' (FPBX_LOG_FILE). All the other settings will route the log messages to your System Logging subsystem (syslog) using the specified log level. Syslog can be configured to route different levels to different locations. See 'syslog' documentation (man syslog) on your system for more details.",
+	'name' => 'AsterMan Log Routing',
+	'description' => "Determine where to send log information if the log is enabled ('Disable AsterMan Log' (AMPDISABLELOG) false. There are two places to route the log messages. 'FILE' will send all log messages to the defined 'FreePBX Log File' (FPBX_LOG_FILE). All the other settings will route the log messages to your System Logging subsystem (syslog) using the specified log level. Syslog can be configured to route different levels to different locations. See 'syslog' documentation (man syslog) on your system for more details.",
 	'sortorder' => -190,
 	'type' => CONF_TYPE_SELECT,
 	);
@@ -259,8 +259,8 @@ class Installer {
 	$settings[$category]['AMPDISABLELOG'] = array(
 	'value' => false,
 	'options' => '',
-	'name' => 'Disable FreePBX Log',
-	'description' => 'Whether or not to invoke the FreePBX log facility.',
+	'name' => 'Disable AsterMan Log',
+	'description' => 'Whether or not to invoke the AsterMan log facility.',
 	'sortorder' => -180,
 	'type' => CONF_TYPE_BOOL,
 	);
@@ -269,7 +269,7 @@ class Installer {
 	'value' => true,
 	'options' => '',
 	'name' => 'Log Verbose Messages',
-	'description' => 'FreePBX has many verbose and useful messages displayed to users during module installation, system installations, loading configurations and other places. In order to accumulate these messages in the log files as well as the on screen display, set this to true.',
+	'description' => 'AsterMan has many verbose and useful messages displayed to users during module installation, system installations, loading configurations and other places. In order to accumulate these messages in the log files as well as the on screen display, set this to true.',
 	'sortorder' => -170,
 	'type' => CONF_TYPE_BOOL,
 	);
@@ -286,8 +286,8 @@ class Installer {
 	$settings[$category]['FPBX_LOG_FILE'] = array(
 	'value' => $amp_conf['ASTLOGDIR'] . '/freepbx.log',
 	'options' => '',
-	'name' => 'FreePBX Log File',
-	'description' => 'Full path and name of the FreePBX Log File used in conjunction with the Syslog Level (AMPSYSLOGLEVEL) being set to FILE, not used otherwise. Initial installs may have some early logging sent to /tmp/freepbx_pre_install.log when it is first bootstrapping the installer.',
+	'name' => 'AsterMan Log File',
+	'description' => 'Full path and name of the AsterMan Log File used in conjunction with the Syslog Level (AMPSYSLOGLEVEL) being set to FILE, not used otherwise. Initial installs may have some early logging sent to /tmp/freepbx_pre_install.log when it is first bootstrapping the installer.',
 	'sortorder' => -150,
 	'type' => CONF_TYPE_TEXT,
 	);
@@ -296,7 +296,7 @@ class Installer {
 	'value' => 'freepbxlog',
 	'options' => array('dbug','freepbxlog','off'),
 	'name' => 'PHP Error Log Output',
-	'description' => "Where to send PHP errors, warnings and notices by the FreePBX PHP error handler. Set to 'dbug', they will go to the Debug File regardless of whether dbug Loggin is disabled or not. Set to 'freepbxlog' will send them to the FreePBX Log. Set to 'off' and they will be ignored.",
+	'description' => "Where to send PHP errors, warnings and notices by the AsterMan PHP error handler. Set to 'dbug', they will go to the Debug File regardless of whether dbug Loggin is disabled or not. Set to 'freepbxlog' will send them to the AsterMan Log. Set to 'off' and they will be ignored.",
 	'sortorder' => -140,
 	'type' => CONF_TYPE_SELECT,
 	);
@@ -332,7 +332,7 @@ class Installer {
 	'value' => false,
 	'options' => '',
 	'name' => 'Aggresively Check for Duplicate Extensions',
-	'description' => "When set to true FreePBX will update its extension map every page load. This is used to check for duplicate extension numbers in the client side javascript validation. Normally the extension map is only created when Apply Configuration Settings is pressed and retrieve_conf is run.",
+	'description' => "When set to true AsterMan will update its extension map every page load. This is used to check for duplicate extension numbers in the client side javascript validation. Normally the extension map is only created when Apply Configuration Settings is pressed and retrieve_conf is run.",
 	'sortorder' => -137,
 	'type' => CONF_TYPE_BOOL,
 	);
@@ -341,7 +341,7 @@ class Installer {
 	'value' => 'extensions',
 	'options' => 'extensions,deviceanduser',
 	'name' => 'User & Devices Mode',
-	'description' => 'Sets the extension behavior in FreePBX.If set to <b>extensions</b>, Devices and Users are administered together as a unified Extension, and appear on a single page. If set to <b>deviceanduser</b>, Devices and Users will be administered separately. Devices (e.g. each individual line on a SIP phone) and Users (e.g. <b>101</b>) will be configured independent of each other, allowing association of one User to many Devices, or allowing Users to login and logout of Devices.',
+	'description' => 'Sets the extension behavior in AsterMan.If set to <b>extensions</b>, Devices and Users are administered together as a unified Extension, and appear on a single page. If set to <b>deviceanduser</b>, Devices and Users will be administered separately. Devices (e.g. each individual line on a SIP phone) and Users (e.g. <b>101</b>) will be configured independent of each other, allowing association of one User to many Devices, or allowing Users to login and logout of Devices.',
 	'sortorder' => -135,
 	'type' => CONF_TYPE_SELECT,
 	);
@@ -350,7 +350,7 @@ class Installer {
 	'value' => 'database',
 	'options' => 'database,none,webserver,usermanager',
 	'name' => 'Authorization Type',
-	'description' => 'Authentication type to use for web admin. If type set to <b>database</b>, the primary AMP admin credentials will be the AMPDBUSER/AMPDBPASS above. When using database you can create users that are restricted to only certain module pages. When set to none, you should make sure you have provided security at the apache level. When set to webserver, FreePBX will expect authentication to happen at the apache level, but will take the user credentials and apply any restrictions as if it were in database mode.',
+	'description' => 'Authentication type to use for web admin. If type set to <b>database</b>, the primary AMP admin credentials will be the AMPDBUSER/AMPDBPASS above. When using database you can create users that are restricted to only certain module pages. When set to none, you should make sure you have provided security at the apache level. When set to webserver, AsterMan will expect authentication to happen at the apache level, but will take the user credentials and apply any restrictions as if it were in database mode.',
 	'level' => 3,
 	'readonly' => 1,
 	'sortorder' => -130,
@@ -361,7 +361,7 @@ class Installer {
 	'value' => false,
 	'options' => '',
 	'name' => 'Allow Login With DB Credentials',
-	'description' => "When Set to True, admin access to the FreePBX GUI will be allowed using the FreePBX configured AMPDBUSER and AMPDBPASS credentials. This only applies when Authorization Type is 'database' mode.",
+	'description' => "When Set to True, admin access to the AsterMan GUI will be allowed using the AsterMan configured AMPDBUSER and AMPDBPASS credentials. This only applies when Authorization Type is 'database' mode.",
 	'sortorder' => -126,
 	'type' => CONF_TYPE_BOOL,
 	);
@@ -370,7 +370,7 @@ class Installer {
 	'value' => '',
 	'options' => '',
 	'name' => 'Force Asterisk Version',
-	'description' => 'Normally FreePBX gets the current Asterisk version directly from Asterisk. This is required to generate proper dialplan for a given version. When using some custom Asterisk builds, the version may not be properly parsed and improper dialplan generated. Setting this to an equivalent Asterisk version will override what is read from Asterisk. This SHOULD be left blank unless you know what you are doing.',
+	'description' => 'Normally AsterMan gets the current Asterisk version directly from Asterisk. This is required to generate proper dialplan for a given version. When using some custom Asterisk builds, the version may not be properly parsed and improper dialplan generated. Setting this to an equivalent Asterisk version will override what is read from Asterisk. This SHOULD be left blank unless you know what you are doing.',
 	'emptyok' => 1,
 	'readonly' => 1,
 	'sortorder' => -100,
@@ -400,7 +400,7 @@ class Installer {
 	$settings[$category]['AMPWEBADDRESS'] = array(
 	'value' => '',
 	'options' => '',
-	'name' => 'FreePBX Web Address',
+	'name' => 'AsterMan Web Address',
 	'description' => 'This is the address of your Web Server. It is mostly obsolete and derived when not supplied and will be phased out, but there are still some areas expecting a variable to be set and if you are using it this will migrate your value.',
 	'emptyok' => 1,
 	'type' => CONF_TYPE_TEXT,
@@ -479,7 +479,7 @@ class Installer {
 	'value' => false,
 	'options' => '',
 	'name' => 'Use Google Distribution Network for js Downloads',
-	'description' => 'Setting this to true will fetch system javascript libraries such as jQuery and jQuery-ui from ajax.googleapis.com. This can be advantageous if accessing remote or multiple different FreePBX systems since the libraries are only cached once in your browser. If external internet connections are problematic, setting this true could result in slow systems. FreePBX will always fallback to the locally available libraries if the CDN is not available.',
+	'description' => 'Setting this to true will fetch system javascript libraries such as jQuery and jQuery-ui from ajax.googleapis.com. This can be advantageous if accessing remote or multiple different AsterMan systems since the libraries are only cached once in your browser. If external internet connections are problematic, setting this true could result in slow systems. AsterMan will always fallback to the locally available libraries if the CDN is not available.',
 	'type' => CONF_TYPE_BOOL,
 	);
 
@@ -488,7 +488,7 @@ class Installer {
 	'options' => '',
 	'readonly' => 1,
 	'name' => 'Update Notifications',
-	'description' => 'FreePBX allows you to automatically check for updates online. The updates will NOT be automatically installed. It is STRONGYLY advised that you keep this enabled and keep updated of these important notificaions to avoid costly security issues.',
+	'description' => 'AsterMan allows you to automatically check for updates online. The updates will NOT be automatically installed. It is STRONGYLY advised that you keep this enabled and keep updated of these important notificaions to avoid costly security issues.',
 	'type' => CONF_TYPE_BOOL,
 	);
 
@@ -569,7 +569,7 @@ class Installer {
 	'value' => false,
 	'options' => '',
 	'name' => 'Convert ZAP Settings to DAHDi',
-	'description' => 'If set to true, FreePBX will check if you have chan_dahdi installed. If so, it will automatically use all your ZAP configuration settings (devices and trunks) and silently convert them, under the covers, to DAHDi so no changes are needed. The GUI will continue to refer to these as ZAP but it will use the proper DAHDi channels. This will also keep Zap Channel DIDs working.',
+	'description' => 'If set to true, AsterMan will check if you have chan_dahdi installed. If so, it will automatically use all your ZAP configuration settings (devices and trunks) and silently convert them, under the covers, to DAHDi so no changes are needed. The GUI will continue to refer to these as ZAP but it will use the proper DAHDi channels. This will also keep Zap Channel DIDs working.',
 	'readonly' => 1,
 	'type' => CONF_TYPE_BOOL,
 	);
@@ -612,7 +612,7 @@ class Installer {
 	'value' => false,
 	'options' => '',
 	'name' => 'Disable -custom Context Includes',
-	'description' => 'Normally FreePBX auto-generates a custom context that may be usable for adding custom dialplan to modify the normal behavior of FreePBX. It takes a good understanding of how Asterisk processes these includes to use this and in many of the cases, there is no useful application. All includes will result in a WARNING in the Asterisk log if there is no context found to include though it results in no errors. If you know that you want the includes, you can set this to true. If you comment it out FreePBX will revert to legacy behavior and include the contexts.',
+	'description' => 'Normally AsterMan auto-generates a custom context that may be usable for adding custom dialplan to modify the normal behavior of AsterMan. It takes a good understanding of how Asterisk processes these includes to use this and in many of the cases, there is no useful application. All includes will result in a WARNING in the Asterisk log if there is no context found to include though it results in no errors. If you know that you want the includes, you can set this to true. If you comment it out AsterMan will revert to legacy behavior and include the contexts.',
 	'type' => CONF_TYPE_BOOL,
 	'level' => 2,
 	);
@@ -727,7 +727,7 @@ class Installer {
 	'value' => 'app_confbridge',
 	'options' => array('app_meetme', 'app_confbridge'),
 	'name' => 'Conference Room App',
-	'description' => 'The asterisk application to use for conferencing. If only one is compiled into asterisk, FreePBX will auto detect and change this value if set wrong. The app_meetme application is considered "depreciated" and should no longer be used',
+	'description' => 'The asterisk application to use for conferencing. If only one is compiled into asterisk, AsterMan will auto detect and change this value if set wrong. The app_meetme application is considered "depreciated" and should no longer be used',
 	'type' => CONF_TYPE_SELECT,
 	);
 
@@ -766,7 +766,7 @@ class Installer {
 	'options' => array('both', 'chan_sip', 'chan_pjsip'),
 	'level' => 2,
 	'name' => 'SIP Channel Driver',
-	'description' => 'The Asterisk channel driver to use for SIP. The default is both for Asterisk 12 and higher. For Asterisk 11 and lower the default will be chan_sip. If only one is compiled into asterisk, FreePBX will auto detect and change this value if set wrong. The chan_pjsip channel driver is considered "experimental" with known issues and does not work on Asterisk 11 or lower.',
+	'description' => 'The Asterisk channel driver to use for SIP. The default is both for Asterisk 12 and higher. For Asterisk 11 and lower the default will be chan_sip. If only one is compiled into asterisk, AsterMan will auto detect and change this value if set wrong. The chan_pjsip channel driver is considered "experimental" with known issues and does not work on Asterisk 11 or lower.',
 	'type' => CONF_TYPE_SELECT,
 	);
 
@@ -776,8 +776,8 @@ class Installer {
 	$settings[$category]['AMPBIN'] = array(
 	'value' => '/var/lib/asterisk/bin',
 	'options' => '',
-	'name' => 'FreePBX bin Dir',
-	'description' => 'Location of the FreePBX command line scripts.',
+	'name' => 'AsterMan bin Dir',
+	'description' => 'Location of the AsterMan command line scripts.',
 	'readonly' => 1,
 	'type' => CONF_TYPE_DIR,
 	'level' => 4,
@@ -786,7 +786,7 @@ class Installer {
 	$settings[$category]['AMPSBIN'] = array(
 	'value' => '/usr/sbin',
 	'options' => '',
-	'name' => 'FreePBX sbin Dir',
+	'name' => 'AsterMan sbin Dir',
 	'description' => 'Where (root) command line scripts are located.',
 	'readonly' => 1,
 	'type' => CONF_TYPE_DIR,
@@ -796,7 +796,7 @@ class Installer {
 	$settings[$category]['AMPWEBROOT'] = array(
 	'value' => '/var/www/html',
 	'options' => '',
-	'name' => 'FreePBX Web Root Dir',
+	'name' => 'AsterMan Web Root Dir',
 	'description' => 'The path to Apache webroot (leave off trailing slash).',
 	'readonly' => 1,
 	'type' => CONF_TYPE_DIR,
@@ -930,7 +930,7 @@ class Installer {
 	'value' => true,
 	'options' => '',
 	'name' => 'Check Server Referrer',
-	'description' => 'When set to the default value of true, all requests into FreePBX that might possibly add/edit/delete settings will be validated to assure the request is coming from the server. This will protect the system from CSRF (cross site request forgery) attacks. It will have the effect of preventing legitimately entering URLs that could modify settings which can be allowed by changing this field to false.',
+	'description' => 'When set to the default value of true, all requests into AsterMan that might possibly add/edit/delete settings will be validated to assure the request is coming from the server. This will protect the system from CSRF (cross site request forgery) attacks. It will have the effect of preventing legitimately entering URLs that could modify settings which can be allowed by changing this field to false.',
 	'type' => CONF_TYPE_BOOL,
 	);
 
@@ -938,7 +938,7 @@ class Installer {
 	'value' => false,
 	'options' => '',
 	'name' => 'Use wget For Module Admin',
-	'description' => 'Module Admin normally tries to get its online information through direct file open type calls to URLs that go back to the freepbx.org server. If it fails, typically because of content filters in firewalls that do not like the way PHP formats the requests, the code will fall back and try a wget to pull the information. This will often solve the problem. However, in such environment there can be a significant timeout before the failed file open calls to the URLs return and there are often 2-3 of these that occur. Setting this value will force FreePBX to avoid the attempt to open the URL and go straight to the wget calls.',
+	'description' => 'Module Admin normally tries to get its online information through direct file open type calls to URLs that go back to the freepbx.org server. If it fails, typically because of content filters in firewalls that do not like the way PHP formats the requests, the code will fall back and try a wget to pull the information. This will often solve the problem. However, in such environment there can be a significant timeout before the failed file open calls to the URLs return and there are often 2-3 of these that occur. Setting this value will force AsterMan to avoid the attempt to open the URL and go straight to the wget calls.',
 	'type' => CONF_TYPE_BOOL,
 	);
 
@@ -1079,7 +1079,7 @@ class Installer {
 	'value' => $amp_conf['ASTLOGDIR'] . '/freepbx_dbug',
 	'options' => '',
 	'name' => 'Debug File',
-	'description' => 'Full path and name of FreePBX debug file. Used by the dbug() function by developers.',
+	'description' => 'Full path and name of AsterMan debug file. Used by the dbug() function by developers.',
 	'level' => 2,
 	'type' => CONF_TYPE_TEXT,
 	);
@@ -1087,7 +1087,7 @@ class Installer {
 	$settings[$category]['FPBXDBUGDISABLE'] = array(
 	'value' => true,
 	'options' => '',
-	'name' => 'Disable FreePBX dbug Logging',
+	'name' => 'Disable AsterMan dbug Logging',
 	'description' => 'Set to true to stop all dbug() calls from writing to the Debug File (FPBXDBUGFILE)',
 	'level' => 2,
 	'type' => CONF_TYPE_BOOL,
@@ -1124,7 +1124,7 @@ class Installer {
 	'value' => true,
 	'options' => '',
 	'name' => 'Use Packaged Javascript Library ',
-	'description' => 'FreePBX packages several javascript libraries and components into a compressed file called libfreepbx.javascript.js. By default this will be loaded instead of the individual uncompressed libraries. Setting this to false will force FreePBX to load all the libraries as individual uncompressed files. This is useful during development and debugging.',
+	'description' => 'AsterMan packages several javascript libraries and components into a compressed file called libfreepbx.javascript.js. By default this will be loaded instead of the individual uncompressed libraries. Setting this to false will force AsterMan to load all the libraries as individual uncompressed files. This is useful during development and debugging.',
 	'level' => 2,
 	'type' => CONF_TYPE_BOOL,
 	);
@@ -1133,7 +1133,7 @@ class Installer {
 	'value' => false,
 	'options' => '',
 	'name' => 'Always Download Web Assets',
-	'description' => 'FreePBX appends versioning tags on the CSS and javascript files and some of the main logo images. The versioning will help force browsers to load new versions of the files when module versions are upgraded. Setting this value to true will try to force these to be loaded to the browser every page load by appending an additional timestamp in the version information. This is useful during development and debugging where changes are being made to javascript and CSS files.',
+	'description' => 'AsterMan appends versioning tags on the CSS and javascript files and some of the main logo images. The versioning will help force browsers to load new versions of the files when module versions are upgraded. Setting this value to true will try to force these to be loaded to the browser every page load by appending an additional timestamp in the version information. This is useful during development and debugging where changes are being made to javascript and CSS files.',
 	'level' => 2,
 	'type' => CONF_TYPE_BOOL,
 	);
@@ -1247,7 +1247,7 @@ class Installer {
 	'value' => '',
 	'options' => '',
 	'name' => 'Remote CDR DB Host',
-	'description' => 'DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by FreePBX.<br>Hostname of db server if not the same as AMPDBHOST.',
+	'description' => 'DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by AsterMan.<br>Hostname of db server if not the same as AMPDBHOST.',
 	'emptyok' => 1,
 	'readonly' => 1,
 	'level' => 3,
@@ -1258,7 +1258,7 @@ class Installer {
 	'value' => '',
 	'options' => '',
 	'name' => 'Remote CDR DB Name',
-	'description' => 'DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by FreePBX.<br>Name of database used for cdr records.',
+	'description' => 'DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by AsterMan.<br>Name of database used for cdr records.',
 	'emptyok' => 1,
 	'readonly' => 1,
 	'level' => 3,
@@ -1269,7 +1269,7 @@ class Installer {
 	'value' => '',
 	'options' => '',
 	'name' => 'Remote CDR DB Password',
-	'description' => 'DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by FreePBX.<br>Password for connecting to db if its not the same as AMPDBPASS.',
+	'description' => 'DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by AsterMan.<br>Password for connecting to db if its not the same as AMPDBPASS.',
 	'emptyok' => 1,
 	'readonly' => 1,
 	'level' => 3,
@@ -1280,7 +1280,7 @@ class Installer {
 	'value' => '',
 	'options' => array(1024,65536),
 	'name' => 'Remote CDR DB Port',
-	'description' => 'DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by FreePBX.<br>Port number for db host.',
+	'description' => 'DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by AsterMan.<br>Port number for db host.',
 	'emptyok' => 1,
 	'readonly' => 1,
 	'level' => 3,
@@ -1291,7 +1291,7 @@ class Installer {
 	'value' => '',
 	'options' => '',
 	'name' => 'Remote CDR DB Table',
-	'description' => 'DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by FreePBX. Name of the table in the db where the cdr is stored. cdr is default.',
+	'description' => 'DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by AsterMan. Name of the table in the db where the cdr is stored. cdr is default.',
 	'emptyok' => 1,
 	'readonly' => 1,
 	'level' => 3,
@@ -1300,7 +1300,7 @@ class Installer {
 
 	$settings[$category]['CDRDBTYPE'] = array(
 	'value' => '',
-	'description' => 'DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by FreePBX. Defaults to your configured AMDBENGINE.',
+	'description' => 'DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by AsterMan. Defaults to your configured AMDBENGINE.',
 	'name' => 'Remote CDR DB Type',
 	'emptyok' => 1,
 	'options' => ',mysql,postgres',
@@ -1313,7 +1313,7 @@ class Installer {
 	'value' => '',
 	'options' => '',
 	'name' => 'Remote CDR DB User',
-	'description' => 'DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by FreePBX. Username to connect to db with if it is not the same as AMPDBUSER.',
+	'description' => 'DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by AsterMan. Username to connect to db with if it is not the same as AMPDBUSER.',
 	'emptyok' => 1,
 	'readonly' => 1,
 	'level' => 3,
@@ -1336,7 +1336,7 @@ class Installer {
 	);
 
 	$settings[$category]['BRAND_TITLE'] = array(
-	'value' => 'FreePBX Administration',
+	'value' => 'AsterMan Administration',
 	'options' => '',
 	'name' => 'Page Title',
 	'description' => 'HTML title of all pages',
@@ -1348,7 +1348,7 @@ class Installer {
 	);
 
 	$settings[$category]['BRAND_IMAGE_TANGO_LEFT'] = array(
-	'value' => 'images/tango.png',
+	'value' => 'images/man.png',
 	'options' => '',
 	'name' => 'Image: Left Upper',
 	'description' => 'Left upper logo.Path is relative to admin.',
@@ -1359,7 +1359,7 @@ class Installer {
 	);
 
 	$settings[$category]['BRAND_IMAGE_FREEPBX_FOOT'] = array(
-	'value' => 'images/freepbx_small.png',
+	'value' => 'images/man_vpbx.png',
 	'options' => '',
 	'name' => 'Image: Footer',
 	'description' => 'Logo in footer.Path is relative to admin.',
@@ -1371,7 +1371,7 @@ class Installer {
 	);
 
 	$settings[$category]['BRAND_IMAGE_SPONSOR_FOOT'] = array(
-	'value' => 'images/sangoma-horizontal_thumb.png',
+	'value' => 'images/man_logo.png',
 	'options' => '',
 	'name' => 'Image: Footer',
 	'description' => 'Logo in footer.Path is relative to admin.',
@@ -1383,10 +1383,10 @@ class Installer {
 	);
 
 	$settings[$category]['BRAND_FREEPBX_ALT_LEFT'] = array(
-	'value' => 'FreePBX',
+	'value' => 'AsterMan',
 	'options' => '',
 	'name' => 'Alt for Left Logo',
-	'description' => 'alt attribute to use in place of image and title hover value. Defaults to FreePBX',
+	'description' => 'alt attribute to use in place of image and title hover value. Defaults to AsterMan',
 	'readonly' => 1,
 	'sortorder' => 70,
 	'level' => 1,
@@ -1398,7 +1398,7 @@ class Installer {
 	'value' => 'FreePBX&reg;',
 	'options' => '',
 	'name' => 'Alt for Footer Logo',
-	'description' => 'alt attribute to use in place of image and title hover value. Defaults to FreePBX',
+	'description' => 'alt attribute to use in place of image and title hover value. Defaults to AsterMan',
 	'readonly' => 1,
 	'sortorder' => 90,
 	'type' => CONF_TYPE_TEXT,
@@ -1407,10 +1407,10 @@ class Installer {
 	);
 
 	$settings[$category]['BRAND_SPONSOR_ALT_FOOT'] = array(
-	'value' => 'www.sangoma.com',
+	'value' => 'http://www.manconsulting.co.uk',
 	'options' => '',
 	'name' => 'Alt for Footer Logo',
-	'description' => 'alt attribute to use in place of image and title hover value. Defaults to FreePBX',
+	'description' => 'alt attribute to use in place of image and title hover value. Defaults to AsterMan',
 	'readonly' => 1,
 	'sortorder' => 90,
 	'level' => 1,
@@ -1419,10 +1419,10 @@ class Installer {
 	);
 
 	$settings[$category]['BRAND_IMAGE_FREEPBX_LINK_LEFT'] = array(
-	'value' => 'http://www.freepbx.org',
+	'value' => 'http://www.manconsulting.co.uk',
 	'options' => '',
 	'name' => 'Link for Left Logo',
-	'description' => 'link to follow when clicking on logo, defaults to http://www.freepbx.org',
+	'description' => 'link to follow when clicking on logo, defaults to http://www.manconsulting.co.uk',
 	'readonly' => 1,
 	'sortorder' => 100,
 	'type' => CONF_TYPE_TEXT,
@@ -1431,10 +1431,10 @@ class Installer {
 	);
 
 	$settings[$category]['BRAND_IMAGE_FREEPBX_LINK_FOOT'] = array(
-	'value' => 'http://www.freepbx.org',
+	'value' => 'http://www.manconsulting.co.uk/es_ES/page/contactus',
 	'options' => '',
 	'name' => 'Link for Footer Logo',
-	'description' => 'link to follow when clicking on logo, defaults to http://www.freepbx.org',
+	'description' => 'link to follow when clicking on logo, defaults to http://www.manconsulting.co.uk/es_ES/page/contactus',
 	'readonly' => 1,
 	'sortorder' => 120,
 	'type' => CONF_TYPE_TEXT,
@@ -1443,7 +1443,7 @@ class Installer {
 	);
 
 	$settings[$category]['BRAND_IMAGE_SPONSOR_LINK_FOOT'] = array(
-	'value' => 'http://www.sangoma.com',
+	'value' => 'https://www.asterisk.org',
 	'options' => '',
 	'name' => 'Link for Sponsor Footer Logo',
 	'description' => 'link to follow when clicking on sponsor logo',
@@ -1768,10 +1768,10 @@ class Installer {
 	);
 
 	$settings[$category]['DASHBOARD_FREEPBX_BRAND'] = array(
-	'value' => 'Asterman',
+	'value' => 'AsterMan',
 	'options' => '',
-	'name' => 'Asterman Brand',
-	'description' => 'The Asterman Brand Name',
+	'name' => 'AsterMan Brand',
+	'description' => 'The AsterMan Brand Name',
 	'readonly' => 1,
 	'emptyok' => 1,
 	'hidden' => 1,

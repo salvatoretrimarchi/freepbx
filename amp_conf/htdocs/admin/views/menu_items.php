@@ -68,10 +68,10 @@ if (isset($fpbx_menu) && is_array($fpbx_menu)) {	// && freepbx_menu.conf not def
 			if (isset($cat[0]['hidden']) && $cat[0]['hidden'] == 'true') {
 				continue;
 			}
-			$href = isset($cat[0]['href']) ? $cat[0]['href'] : 'config.php?display=' . $cat[0]['display'];
-			$target = isset($cat[0]['target']) ? ' target="' . $cat[0]['target'] . '"'  : '';
-			$class = $cat[0]['display'] == $display ? 'class="ui-state-highlight"' : '';
-			$mods[$t] = '<li><a href="' . $href . '" ' . $target . $class . '>' . modgettext::_(ucwords($cat[0]['name']),$cat[0]['module']['rawname']) . '</a></li>';
+			//$href = isset($cat[0]['href']) ? $cat[0]['href'] : 'config.php?display=' . $cat[0]['display'];
+			//$target = isset($cat[0]['target']) ? ' target="' . $cat[0]['target'] . '"'  : '';
+			//$class = $cat[0]['display'] == $display ? 'class="ui-state-highlight"' : '';
+			//$mods[$t] = '<li><a href="' . $href . '" ' . $target . $class . '>' . modgettext::_(ucwords($cat[0]['name']),$cat[0]['module']['rawname']) . '</a></li>';
 			continue;
 		}
 

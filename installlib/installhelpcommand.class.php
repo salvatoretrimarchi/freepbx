@@ -20,13 +20,13 @@ class FreePBXHelpCommand extends HelpCommand {
 		$this->command = $command;
 	}
 	protected function execute(InputInterface $input, OutputInterface $output) {	
-		$output->writeln("   _             _                ___        ___                     ");
-		$output->writeln(" / _  \ ____    |  |              |     \    /     |                    ");
-		$output->writeln("| |  | |  __  __|  |___           |      \  /      |                    ");
-		$output->writeln("| |__| | |___|__     __|__  _  _  |  |\   \/   /|  |  __   _  ___     ");
-		$output->writeln("|  _   | _   |   |  |   /  \| '__/|  | \      / |  |/    \| |/ __ \    ");
-		$output->writeln("| |  | |___| |   |  |  |  _/|  |  |  |  \____/  |  |  ()  | | |  | |   ");
-		$output->writeln("|_|  |_|_____|   |__|   \___||_|  |__|          |__|\ ___/|_|_|  |_|   ");
+		$output->writeln("   _              _               ___         ___                     ");
+		$output->writeln(" / _  \ ____    |  |             |     \    /     |                    ");
+		$output->writeln("| |  | |  __  __|  |__           |      \  /      |                    ");
+		$output->writeln("| |__| | |___|__    __| __  _  _ |  |\   \/   /|  |  __   _  ___     ");
+		$output->writeln("|  _   | _   |  |  |   /  \| '__/|  | \      / |  |/    \| |/ __ \    ");
+		$output->writeln("| |  | |___| |  |  |  |  _/|  |  |  |  \____/  |  |  ()  | | |  | |   ");
+		$output->writeln("|_|  |_|_____|  |__|   \___||_|  |__|          |__|\ ___/|_|_|  |_|   ");
 
 		if (null === $this->command) {
 			$this->command = $this->getApplication()->find($input->getArgument('command_name'));

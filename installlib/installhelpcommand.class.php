@@ -8,6 +8,8 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 /**
+$output->writeln(" / _ \ ____    |  |              |     \    /     |                    ");
+$output->writeln("| |  | |  __ __|  |___           |      \  /      |                    ");
 * HelpCommand displays the help for a given command.
 *
 * @author Fabien Potencier <fabien@symfony.com>
@@ -18,13 +20,14 @@ class FreePBXHelpCommand extends HelpCommand {
 	public function setCommand(FreePBXInstallCommand $command) {
 		$this->command = $command;
 	}
-	protected function execute(InputInterface $input, OutputInterface $output) {
-		$output->writeln(" ______             _____  ______   __");
-		$output->writeln("|  ____|           |  __ \|  _ \ \ / /");
-		$output->writeln("| |__ _ __ ___  ___| |__) | |_) \ V /");
-		$output->writeln("|  __| '__/ _ \/ _ \  ___/|  _ < > <");
-		$output->writeln("| |  | | |  __/  __/ |    | |_) / . \\");
-		$output->writeln("|_|  |_|  \___|\___|_|    |____/_/ \_\\");
+	protected function execute(InputInterface $input, OutputInterface $output) {	
+		$output->writeln("   _             _                ___        ___                     ");
+		$output->writeln(" / _  \ ____    |  |              |     \    /     |                    ");
+		$output->writeln("| |  | |  __  __|  |___           |      \  /      |                    ");
+		$output->writeln("| |__| | |___|__     __|__  _  _  |  |\   \/   /|  |  __   _  ___     ");
+		$output->writeln("|  _   | _   |   |  |   /  \| '__/|  | \      / |  |/    \| |/ __ \    ");
+		$output->writeln("| |  | |___| |   |  |  |  _/|  |  |  |  \____/  |  |  ()  | | |  | |   ");
+		$output->writeln("|_|  |_|_____|   |__|   \___||_|  |__|          |__|\ ___/|_|_|  |_|   ");
 
 		if (null === $this->command) {
 			$this->command = $this->getApplication()->find($input->getArgument('command_name'));

@@ -8,8 +8,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 /**
-$output->writeln(" / _ \ ____    |  |              |     \    /     |                    ");
-$output->writeln("| |  | |  __ __|  |___           |      \  /      |                    ");
+
 * HelpCommand displays the help for a given command.
 *
 * @author Fabien Potencier <fabien@symfony.com>

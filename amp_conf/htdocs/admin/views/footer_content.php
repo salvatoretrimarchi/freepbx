@@ -25,8 +25,7 @@ $html .= '<div class="col-md-4">
 
 //text
 $html .= '<div class="col-md-4" id="footer_text">';
-$html .= sprintf(_('%s '),' ') . br();
-$html .= sprintf(_('%s '),' ') . br();
+$html .= sprintf(_('%s '),' AsterMan 3.0') . br();
 $html .= sprintf(_('%s '),'<a href="https://www.manconsulting.co.uk" target="_blank">MAN Consulting S.A</a>') . br();
 $html .= sprintf(_('%s '),'Tel. +504 22626363') . br();
 $html .= sprintf(_('%s '),'Centro Morazán, Torre 1, Piso 8, Oficina 10813') . br();

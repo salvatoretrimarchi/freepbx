@@ -1371,7 +1371,7 @@ class Installer {
 	);
 
 	$settings[$category]['BRAND_IMAGE_SPONSOR_FOOT'] = array(
-	'value' => 'images/man_logo.png',
+	'value' => 'images/asterisk-logo.png',
 	'options' => '',
 	'name' => 'Image: Footer',
 	'description' => 'Logo in footer.Path is relative to admin.',

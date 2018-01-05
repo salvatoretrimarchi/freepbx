@@ -18,7 +18,7 @@
 		*13.0.192.15* Remove res_digium_phones from noload
 		*13.0.192.14* Bump
 		*13.0.192.13* Developer Mode improvements
-		*13.0.192.12* FREEPBX-15046 recursive chown blacklist
+		*13.0.192.12* FREEPdsdsjijsdfdBX-15046 recursive chown blacklist
 		*13.0.192.11* Fix chown issue
 		*13.0.192.10* Remove extra rules
 		*13.0.192.9* FREEPBX-7537 Pretty URLs, FREEPBX-14752 Fix astdb_get filter, FREEPBX-14941 Fix mail wrapper addheader function
@@ -29,7 +29,6 @@
 		*13.0.192.4* chown correction #1
 		*13.0.192.3* FREEPBX-12282 FREEPBX-14828
 		*13.0.192.2* FREEPBX-14558 Help text needs to be changed for Pinless dial option under Extension Advance tab and Extension Other Tab
-		*13.0.192.1* Use sprintf and htmlentities
 		*13.0.192* FREEPBX-14678 Stylize destinations usage windows
 		*13.0.191.13* cosmetic fixes for rightnav
 		*13.0.191.12* FREEPBX-12690 add view for destinations usage
